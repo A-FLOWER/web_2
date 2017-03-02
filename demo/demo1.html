@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../angular.min.js"></script>
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/4.3.2/css/foundation.min.css">
+		
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="cityController">
+			<select ng-model="city" ng-options="city.name for city in cities">
+				<option value="">chose city</option>
+			</select>
+			Best city: {{ city.name }}
+		</div>
+		<script>
+			angular.module('myApp',[]).controller("cityController",function($scope){
+				$scope.cities = [
+					{name: 'Seattle'},
+ {name: 'San Francisco'},
+ {name: 'Chicago'},
+ {name: 'New York'},
+ {name: 'Boston'} 
+				]
+			})
+		</script>
+	</body>
+</html>

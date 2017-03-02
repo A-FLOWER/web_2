@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动画</title>
+		<script src="../angular.min.js"></script>
+		<script src="../angular-animate.min.js"></script>
+		<style>
+			.ble {
+				transition: all linear 0.8s;
+				background-color: blue; 
+				height: 100px;
+			}
+			.ng-hide {
+				height: 0;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<div>
+			<input type="checkbox" ng-model="mycheck" />
+			<div ng-hide="mycheck" class="ble"></div>
+		</div>
+		<script>
+			angular.module("myApp",['ngAnimate']);
+		</script>
+	</body>
+</html>

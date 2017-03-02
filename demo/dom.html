@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML DOM</title>
+		<script src="../angular.min.js"></script>
+	</head>
+	<body>
+		<!--<div ng-app="" ng-init="mySwitch=true">
+			<p><button ng-disabled="mySwitch">click me</button></p>
+			<p><input type="checkbox" ng-model="myswitch">按钮</p>
+			<p>{{ mySwitch }}</p>
+		</div>-->
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<button ng-click="toggle()">show/hide</button>
+			<p ng-hide="myVar">
+			<button >click me</button>
+			<span>{{ count }}</span>
+			</p>
+		</div>
+		<script>
+			angular.module("myApp",[]).controller("myCtrl",function($scope) {
+				$scope.count=1;
+				$scope.myVar=false;
+				$scope.toggle = function() {
+					$scope.myVar = !$scope.myVar;
+				}
+			})
+		</script>
+	</body>
+</html>

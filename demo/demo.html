@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>demo</title>
+		<script src="../angular.min.js"></script>
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/4.3.2/css/foundation.min.css">
+		<style>
+			/*input.ng-valid {
+				background-color: lightblue;
+			}*/
+			.odd {background-color: blue;}
+			.even{ background-color: red;}
+		</style>
+	</head>
+	<body>
+		<!--<div ng-app="myApp" ng-controller="myCtrl">
+			名字：<input type="text" ng-model="name" />
+			你输入了：{{name}}
+		</div>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller('myCtrl', function($scope) {
+				$scope.name = 'Leo';
+			})
+		</script>-->
+		<!--<form ng-app="" name="form">
+			Email:<input type="email" name="myEmail" ng-model="text" />
+			<span ng-show="form.myEmail.$error.email"></span>
+			<p>Valid:{{form.myEmail.$valid}}输入的值是合法的话则为true</p>
+			<p>Dirty:{{form.myEmail.$dirty}}输入的值改变的话则为true}</p>
+			<p>Touched:{{form.myEmail.$touched}}</p>
+		</form>-->
+		<!--<form ng-app="" name="form">
+			输入你的名字：<input name="name" ng-model="myText" required="required" />
+		</form>-->
+		<!--<div ng-app="myApp" ng-controller="myCtrl">
+			<input ng-model="name" />
+			<h1>{{greeting}}</h1>
+			<button ng-click="sayHello()">click me</button>
+		</div>
+		<script>
+			var app = angular.module("myApp",[]);
+			app.controller('myCtrl',function($scope) {
+				$scope.name='Robel';
+				$scope.sayHello = function() {
+					$scope.greeting = 'Hello' + $scope.name + '!'
+				};
+			});
+		</script>-->
+		<!--<div ng-app="myApp" ng-controller="myCtrl">
+			<ul>
+				<li ng-repeat="x in names">{{x}}</li>
+			</ul>
+		</div>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller('myCtrl',function($scope){
+				$scope.names=['jay','leo','alan']
+			});
+		</script>-->
+		<!--<div ng-app="myApp" ng-controller="myCtrl">
+			<h1>{{lastName}}的族谱</h1>
+			<ul>
+				<li ng-repeat="x in names">{{x}}</li>
+			</ul>
+		</div>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope,$rootScope) {
+				$scope.names=['jay','leo','alan'];
+				$rootScope.lastName="Rober";
+			})
+		</script>-->
+		<!--<div ng-app="myApp" ng-controller="myController">
+			<input ng-model="to" type="email" placeholder="Recipent" />
+			<textarea ng-model="emailBody"></textarea>
+			<pre>{{ previewText }}</pre>
+		</div> 
+		<script>
+			angular.module('emailPaeser', []).config(['$interpolateProvider', function($interpolateProvider) {
+				$interpolateProvider.startSymbol('__');
+				$interpolateProvider.endSymbol('__');
+			}]).factory('EmailParser',['$interpolate', function($interpolate) {
+				return {
+					parse: function(text, context) {
+						var template = $interpolate(text);
+						return template(context);
+					}
+				}
+			}]);
+			angular.module('myApp',['emailParser']).controller('myController', ['$scope','EmailParser',function () {
+				$scope.$watch('emailBody', function(body) {
+					if(body) {
+						$scope.previewText = EmailParser.parse(body,{ to: $scope.to });
+					}
+				});
+			}]);	</script>-->
+<!--			<div ng-app="myApp">
+			<input type="text" ng-model="someProperty" placeholder="haveto" />
+			<button ng-model="button" ng-disabled="!someProperty" class="btn btn-danger">click</button>
+			<textarea ng-disabled="isDisabled">wait 5 second</textarea>
+			<input type="text" ng-model="somePro" />
+			<input type="text" ng-readonly="somePro" value="Some here" />
+			<label>someProperty = {{ somePre }}</label>
+			<input type="checkbox" ng-checked="somePre" ng-init="somePre=true" ng-model="somePre" />
+			<br />
+			<label>Select two fish:</label>
+			<input type="checkbox" ng-model="isTwoFish" /></br>
+			<select>
+				<option>One Fish</option>
+				<option ng-selected="isTwoFish">Two Fish</option>
+			</select>
+			<p>
+				<a ng-href="{{myhref}}">I‘am here!</a>
+			</p>
+			<div>
+				<h1>WrongWay</h1>
+				<img src="{{imgSrc}}"/>
+				<h1>RightWay</h1>
+				<img ng-src="{{imgSrc}}" />
+			</div>
+			</div>
+			<script>
+				angular.module('myApp',[]).run(function($rootScope,$timeout){
+					$rootScope.isDisabled = true;
+					$timeout(function() {
+						$rootScope.isDisabled = false;
+						$rootScope.myhref = 'https://www.baidu.com/';
+						$rootScope.imgSrc='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487934780177&di=59f5fbbccaa0ec79c7f1405abe93aceb&imgtype=0&src=http%3A%2F%2Ffile27.mafengwo.net%2FM00%2FB2%2F12%2FwKgB6lO0ahWAMhL8AAV1yBFJDJw20.jpeg'; 
+					},2000);
+				});
+				
+			</script>-->
+			
+			<div ng-app="myApp" ng-controller="myCtroller">
+				{{ someModel }}
+				<button ng-click="someAction()">click</button>
+				<div ng-controller="childController">
+					{{ someModel }}
+					<button ng-click="childAction()">child</button>
+				</div>
+				<div ng-if="2+2===5">
+					helloppl
+				</div>
+				<div ng-if="2+2===4">
+					hie,i am here
+				</div>
+				<ul ng-controller="ulController">
+					<li ng-repeat="person in people" ng-class="{even: !$even, odd: !$odd}">
+						{{ person.name }} lives in {{ person.city }}
+					</li>
+				</ul>
+				<div ng-controller="changeController">
+					<input type="text" ng-model="equation.x" ng-change="change()"/>
+					<code>  {{ equation.output }}</code>
+				</div>
+			</div>
+			  
+			<form name="signup_form" ng-controller="formController" ng-submit="submitForm()" novalidate>
+			  <div ng-repeat="field in fields" ng-form="signup_form_input">
+			    <input type="text"
+			           name="dynamic_input"
+			           ng-required="field.isRequired"
+			           ng-model="field.name"
+			           placeholder="{{field.placeholder}}" />
+			    <div ng-show="signup_form_input.dynamic_input.$dirty && signup_form_input.dynamic_input.$invalid">
+			      <span class="error" ng-show="signup_form_input.dynamic_input.$error.required">The field is required.</span>
+			    </div>
+			  </div>
+			  <button type="submit" ng-disabled="signup_form.$invalid">Submit All</button>
+			</form>
+			<script>
+				angular.module('myApp',[]).controller('myCtroller', function($scope) {
+					$scope.someModel = "hello computer"
+					$scope.someAction = function() {
+						$scope.someModel = "hello man,from parent"
+					}
+				}).controller("childController", function($scope) {
+					$scope.childAction = function() {
+					$scope.someModel = 'hey,man,from child'
+					}
+				}).controller("ulController", function($scope) {
+					$scope.people = [
+						{name: "Ari", city: "San"},
+						{name: "Erik", city: "beijing"}
+					]
+				}).controller("changeController", function($scope) {
+					$scope.equation = {};
+					$scope.change = function() {
+						$scope.equation.output = parseInt($scope.equation.x) + 2
+					}
+				}).controller('formController',function($scope) {
+					 $scope.fields = [
+					 {placeholder: 'Username', isRequired: true},
+					 {placeholder: 'Password', isRequired: true},
+					 {placeholder: 'Email (optional)', isRequired: false}
+					 ];
+				 $scope.submitForm = function() {
+				 alert("it works!");
+				 }; 
+				});
+			</script>
+	</body>
+</html>

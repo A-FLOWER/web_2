@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>过滤器</title>
+		<script src="../angular.min.js"></script>
+	</head>
+	<body>
+		<!--<div ng-app="myApp" ng-controller="myCtrl">
+		数量：<input ng-model="quantity" /> 价格：<input ng-model="cost" />
+		<p>总价={{(quantity * cost) | currency}}</p>
+		{{myUrl}}
+		</div>
+		<script>
+			angular.module("myApp",[]).controller("myCtrl",function($scope,$location) {
+				$scope.quantity = 2;
+				$scope.cost=6.66;
+				$scope.myUrl=$location.absUrl();
+			})
+		</script>-->
+		<!--<div ng-app="myApp" ng-controller="myCtrl">
+			<p>2秒后显示</p>
+			<h1>{{myHeader}}</h1>
+			<script>
+				angular.module("myApp",[]).controller("myCtrl",function($scope,$timeout) {
+					$scope.myHeader="Hello word!";
+					$timeout(function() {
+						$scope.myHeader="how are you"
+					},2000)
+				})
+			</script>
+		</div>-->
+		<!--<div ng-app="myApp" ng-controller="myCtrl">
+			<ul><li ng-repeat="x in names">
+				{{x.Name + ", " + c.Country}}
+			</li></ul>
+		</div>
+		<script>
+			var app = angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope,$http) {
+				$http.get("http://www.runoob.com/try/angularjs/data/sites.php").success(function(response) {
+					$scope.names=response.sites;
+				})
+			});
+		</script>-->
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<select ng-init="selectedName=names[0][0].site" ng-model="selectedName" ng-options="x.site for x in names"></select>
+			<select ng-model="selectedSite">
+				<option ng-repeat="x in names" value="{{x.url}}">{{x.site}}</option>
+			</select>
+			<h1>你选择的是：{{selectedSite}}</h1>
+		</div>
+		<script>
+			angular.module("myApp",[]).controller("myCtrl",function($scope) {
+				$scope.names = [
+					{site : "Google", url : "http://www.google.com"},
+	    			{site : "Runoob", url : "http://www.runoob.com"},
+	    			{site : "Taobao", url : "http://www.taobao.com"}
+				];
+			});
+		</script>
+	</body>
+</html>
